@@ -53,8 +53,9 @@ $torchcmd --nproc_per_node=$n_gpu --master_port=$MASTER_PORT $(which unicore-tra
         --tensorboard-logdir ${log_dir}/tsb \
         --log-interval 500 --log-format simple \
         --finetune-encoder-model $encoder_weight_path \
-        --validate-interval 5 --patience 100 \
+        --validate-interval 20 --patience 100 \
         --save-interval 20 \
+        --keep-last-epochs 1 \
         --encoder unimol-laser \
         --decoder TFM \
         --max-atoms 350 \
