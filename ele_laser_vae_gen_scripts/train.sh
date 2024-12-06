@@ -40,6 +40,7 @@ echo "Using $n_gpu GPUs"
 
 global_batch_size=$(($local_batch_size * $n_gpu * $update_freq))
 log_dir="/vepfs/fs_ckps/guojianz/Laser_Design/vae_v2_${task_name}_${global_batch_size}_${lr}_${dropout}_${seed}_${wd}"
+rm -rf $log_dir
 mkdir -p $log_dir
 
 $torchcmd --nproc_per_node=$n_gpu --master_port=$MASTER_PORT $(which unicore-train) $data_path --task-name $task_name --user-dir ../unimol --train-subset valid --valid-subset valid \
@@ -52,11 +53,11 @@ $torchcmd --nproc_per_node=$n_gpu --master_port=$MASTER_PORT $(which unicore-tra
         --tensorboard-logdir ${log_dir}/tsb \
         --log-interval 500 --log-format simple \
         --finetune-encoder-model $encoder_weight_path \
-        --validate-interval 1 --keep-last-epochs 1 --patience 100 \
+        --validate-interval 20 --patience 100 \
+        --save-interval 20 \
         --encoder unimol-laser \
         --decoder TFM \
         --max-atoms 350 \
         --find-unused-parameters \
         --all-gather-list-size 16384000 \
         --save-dir $log_dir 2>&1 | tee ${log_dir}/train.log
-
