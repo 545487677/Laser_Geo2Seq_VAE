@@ -162,9 +162,19 @@ class Metrics(object):
         train_smiles = np.load(os.path.join(args.data, args.task_name, 'train_canonical_smiles.npy'), allow_pickle=True).tolist()
 
         novel_ratio = Metrics.check_novelty(num_threads, valid_smiles, train_smiles)
+        os.makedirs(args.results_path, exist_ok=True)
+        # np.save(os.path.join(args.results_path, 'valid_smi.npy'), valid_smiles)
+        # np.save(os.path.join(args.results_path, 'valid_con.npy'), condition_truth)
 
-        np.save(os.path.join(args.results_path, 'valid_smi.npy'), valid_smiles)
-        np.save(os.path.join(args.results_path, 'valid_con.npy'), condition_truth)
+        # load 80w origin smiles 
+        ori_80w_smiles = np.load('/vepfs/fs_users/guojianz/dp_project/laser_vae_gen/check/canonical_smiles.npy', allow_pickle=True).tolist()
+        # 去重
+        ori_80w_smiles = set(ori_80w_smiles)
+        unique_smiles = set(unique_smiles).difference(ori_80w_smiles)
+
+        # 转回列表（如果需要）
+        unique_smiles = list(unique_smiles)
+        # 
 
         results = dict()
         results['valid_mols'] = valid_mols
