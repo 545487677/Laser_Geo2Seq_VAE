@@ -10,25 +10,6 @@ task_name='opt_mol' # data folder name
 echo $task_name
 mkdir -p $results_path
 
-# pytorch_version=`python -c 'import torch; print(torch.__version__)'`
-# if [[ $pytorch_version = 1* ]]; then
-#        echo "PyTorch 1 found. Using torch.distributed.launch..."
-#        torchcmd="python -m torch.distributed.launch"
-# else
-#        echo "PyTorch 2 found. Using torchrun..."
-#        torchcmd="torchrun"
-# fi
-
-# # 获取 GPU 数量
-# if [ -z "$CUDA_VISIBLE_DEVICES" ]; then
-#     n_gpu=$(nvidia-smi -L | wc -l)
-#     export CUDA_VISIBLE_DEVICES=$(seq -s , 0 $(($n_gpu - 1)))
-# else
-#     IFS=',' read -r -a gpu_array <<< "$CUDA_VISIBLE_DEVICES"
-#     n_gpu=${#gpu_array[@]}
-# fi
-# echo "Using $n_gpu GPUs"
-
 ## VAE
 python  /vepfs/fs_users/guojianz/dp_project/laser_vae_gen/unimol/infer.py --user-dir ../unimol $data_path --task-name $task_name \
        --results-path $results_path \
@@ -47,4 +28,3 @@ python  /vepfs/fs_users/guojianz/dp_project/laser_vae_gen/unimol/infer.py --user
        --infer_mode gen \
        2>&1 | tee ${results_path}/log.txt
 
-# 100000
