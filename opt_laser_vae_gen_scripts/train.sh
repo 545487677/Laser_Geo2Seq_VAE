@@ -28,7 +28,6 @@ else
        torchcmd="torchrun"
 fi
 
-# 获取 GPU 数量
 if [ -z "$CUDA_VISIBLE_DEVICES" ]; then
     n_gpu=$(nvidia-smi -L | wc -l)
     export CUDA_VISIBLE_DEVICES=$(seq -s , 0 $(($n_gpu - 1)))
