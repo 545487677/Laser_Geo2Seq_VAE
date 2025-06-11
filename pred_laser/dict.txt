@@ -1,0 +1,10 @@
+[PAD]
+[CLS]
+[SEP]
+[UNK]
+C
+H
+N
+O
+S
+F
