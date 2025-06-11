@@ -1,4 +1,4 @@
-#!/mnt/d/app/anaconda3/envs/py39/bin/python
+#!/usr/bin/env python3 -u
 # Copyright (c) DP Techonology, Inc. and its affiliates.
 #
 # This source code is licensed under the MIT license found in the
