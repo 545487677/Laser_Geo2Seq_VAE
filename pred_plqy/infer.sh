@@ -1,7 +1,7 @@
 n_gpu=1
 layers=12 #9
 results_path="./"  # replace to your results path
-weight_path='./weights/checkpoint_best.pt'  # replace to your ckpt path
+weight_path='./weights_plqy/checkpoint_best.pt'  # replace to your ckpt path
 batch_size=32
 
 ## FOR VALIDATION: 
@@ -21,7 +21,7 @@ dict_name='dict.txt'
 
 
 MASTER_PORT=10086
-torchrun --nproc_per_node=$n_gpu --master_port=$MASTER_PORT ../unimol/infer.py --user-dir ../unimol $data_path --task-name $task_name --valid-subset valid \
+torchrun --nproc_per_node=$n_gpu --master_port=$MASTER_PORT ../unimol-pre/infer.py --user-dir ../unimol $data_path --task-name $task_name --valid-subset valid \
        --results-path $results_path \
        --num-workers 8 --ddp-backend=c10d --batch-size $batch_size \
        --task mol_finetune_infer --loss finetune_smooth_mae --arch unimol_ori \
