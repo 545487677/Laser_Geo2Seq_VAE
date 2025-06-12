@@ -30,7 +30,7 @@ It includes:
 │
 ├── weights_laser/          # Weight of laser
 │
-├── weights_plqy/          # Weight of plqy
+├── weights_plqy/           # Weight of plqy
 │
 └── README.md               # This documentation
 ```
@@ -45,6 +45,9 @@ Clone the Uni-Mol repository:
 git clone https://github.com/deepmodeling/Uni-Mol.git
 ```
 Follow the official Uni-Mol setup guide to install dependencies and prepare the environment.
+
+## Download weights
+https://drive.google.com/drive/folders/1fac-PKyMWZBOKEi2JNqOLdUcvZCZRLJy?usp=sharing
 
 ## Run Inference
 After setting up the environment, you can perform inference using the provided scripts.
@@ -63,6 +66,9 @@ Prediction results will be saved in the output files. Reference values are inclu
 ## Related Work
 This work builds on our previous publication:
 
-Data-driven quantum chemical property prediction leveraging 3D conformations with Uni-Mol+
-Nature Communications, 15, 7104 (2024).
-DOI: 10.1038/s41467-024-51321-w
+Uni-Mol: A Universal 3D Molecular Representation Learning Framework
+https://openreview.net/forum?id=6K2RM6wVqKu
+
+Ou, Q., Peng, Q. & Shuai, Z. Computational screen-out strategy for electrically pumped organic laser materials. 
+Nat Commun 11, 4485 (2020).
+https://doi.org/10.1038/s41467-020-18144-x
