@@ -1,7 +1,7 @@
-# Closed-Loop AI Enables Organic Continuous-Wave Laser
+# Closed-Loop AI Enables Discovery of Ultralow-Threshold Organic Laser
 
 This repository contains the source code for the research article  
-**"Closed-Loop AI Enables Organic Continuous-Wave Laser"**.
+**"Closed-Loop AI Enables Discovery of Ultralow-Threshold Organic Laser"**.
 
 It includes:
 - A **predictive model** for photoluminescence quantum yield (PLQY) and lasing performance.
